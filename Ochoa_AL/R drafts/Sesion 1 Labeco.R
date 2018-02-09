@@ -84,5 +84,12 @@ EX
 varX = matrix(c(varx1, covx1x2, covx1x3,covx1x3, varx2, covx2x3, covx1x3, covx2x3, varx3),3)
 varX
 
+#var y
 
+varY = matrix(c(vary1, 
+                covy1y2,
+                covy1y2,vary2),2)
+varY
+
+varX
 
