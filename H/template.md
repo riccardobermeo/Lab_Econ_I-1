@@ -20,13 +20,13 @@ Para hacer listas enumeradas se pone número seguido de punto y un espacio:
 
 1. Elemento 1 de la lista enumerada
 2. Elemento 2 de la lista enumerada
- 1. Elemento 2.1 de la lista
- 2. Elemento 2.2 de la lista
+  1. Elemento 2.1 de la lista
+  2. Elemento 2.2 de la lista
     1. Elemento 2.2.1 de la lista
     2. Elemento 2.1.2 de la lista
 3. Elemento 3 de la lista enumerada
- 1. Elemento 3.1 de la lista
- 2. Elemento 3.2 de la lista
+  1. Elemento 3.1 de la lista
+  2. Elemento 3.2 de la lista
  
 Para hacer listas sin enumerar:
 
