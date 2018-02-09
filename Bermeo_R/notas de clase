@@ -1,0 +1,45 @@
+#**Colegio de México**
+##__Centro de Estudios Económicos__
+##Bermeo Fernández Ricardo
+
+#Notas de clase
+
+##Operaciones basicas
+estas son las operaciones aritméticas
+suma +
+resta -
+división /
+multiplicación *
+potencia ^
+
+##Otras operaciones
+abosulto 
+    abs()
+
+##tipo de variables
+numericas
+    d=55
+booleanas
+    b=true/false
+cateogricas
+    c="oso"
+conocer el tipo de variable
+    class()
+
+##crear vectores
+    x=c(a,b,c,d,e,f,g)
+    estos son vectores de 1*n
+
+##crear matrices y operaciones
+    A=matrix(c(a,b,c,d,e,f,g,h,i),nrow,ncol)
+transpuesta
+    At=T(A)
+identidad
+    I=diag(n)
+visualizar elementos
+    A[n]
+    nota:recordemos que las matrices se cuentas por columnas
+inversa
+    Ai=solve(A)
+multiplicación de matrices
+    A%*%B
