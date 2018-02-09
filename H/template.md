@@ -62,4 +62,9 @@ Como dijo alguna Jack el destripador
 > partes.
 
 
-## 2 Subtítulo
+## Referencias para profundizar
+La referencia oficial para la sintaxis de Markdown es [Daring Fireball](https://daringfireball.net/projects/markdown/syntax).
+
+Si quieres volver a aprender lo básico de Markdown cono un tutorial práctico y muy didáctico puedes probar con [este](http://commonmark.org/help/tutorial/).
+
+
