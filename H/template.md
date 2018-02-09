@@ -6,7 +6,7 @@ Los párrafos se hacen dejando una línea sin caracteres entre líneas de códig
 Este es el segundo párrafo y así.
 
  
-### Negritas, cursivas y combinación de negritas y cursivas
+## Negritas, cursivas y combinación de negritas y cursivas
 
 En los párrafos se puede incluir *texto en cursivas* poniendo las palabras entre asteriscos o bien entre guiones bajos como este otro _texto en cursivas_. 
 
@@ -61,6 +61,10 @@ Como dijo alguna Jack el destripador
 >
 > partes.
 
+## Código
+
+    EX = matrix(c(Ex1,Ex2,Ex3),3)
+    EX
 
 ## Referencias para profundizar
 La referencia oficial para la sintaxis de Markdown es [Daring Fireball](https://daringfireball.net/projects/markdown/syntax).
