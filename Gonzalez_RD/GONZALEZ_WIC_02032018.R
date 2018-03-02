@@ -5,11 +5,11 @@
 
 #Operadores relaciones
 
-7==4 Falso
+7==4 #Falso
 
-7==7 Verdadero
+7==7 #Verdadero
 
-7!==7
+7!=7
 
 #Condicionales
 
@@ -17,7 +17,7 @@ a=1
 b=1
 
 #Verficando si números son iguales
-if(a==B)()
+if(a==b)(
   print("Los números son iguales")
 ) else(
   print("Los dos números")
@@ -34,10 +34,10 @@ help("function") #Ayuda a encontrar cosas en la documentación de R
 #Input: número real
 #Output: el cuadrdo del número real
 
-cuadrado= function(x)(
+cuadrado= function(x){
   y=x^2
   return(x)
-)
+}
 
 cuadrado(5)
 
@@ -46,13 +46,14 @@ cuadrado(5)
 #Input: Número real
 #Output: si x espositivo regresa la raiz del número, si no lo es entonces regresa un mensaje
 
-raiz=function(x)(
+raiz=function(x){
   if(x<0)(
    print("el número es negativo y me niego a regresarte numeros imaginarios") 
   ) else(
     return(sqrt(x))
   )
-)
+}
+
 raiz(25)
 raiz(-9)
 
@@ -60,13 +61,19 @@ raiz(-9)
 #Input: tres números reales
 #Output: si se cumple que b^2>=4ac entonces se obtienen las raices del polinomio, sino, entonces
 
-chicha= function(a,b,c)(
+chicharronera= function(a,b,c){
   cond= b^2>=4*a*c
-  if(cond)(
-    z1= (-b+sqrt(b^2+4*a*c))/2*a
-    z2=
-  )
-)
+  if(cond){
+    z1= (-b+sqrt(b^2-4*a*c))/2*a
+    z2= (-b-sqrt(b^2-4*a*c))/2*a
+    Z= matrix(c(z1,z2),1)
+    return(z)
+  } else{
+    print("El polinomio tiene raíces complejas,por favor utiliza otro método")
+  }
+}
+
+chicharronera(5,6,7)
 
 #Loops
 ##While
@@ -83,7 +90,7 @@ while(x<5){
 x=1
 while(x<8){
   x=x+1
-  if (x=4) next
+  if (x==4) next
   print(x)
 }
 
@@ -98,7 +105,7 @@ for(i in 1:30){
 #---------
 #Algoritmos en práctica
 
-#Algoritmo de Euclides para eláximo común divisor
+#Algoritmo de Euclides para el máximo común divisor
 #Input: dos números enteros reales a y b
 # Output: el máximo común divisor de los dos números
 
@@ -126,20 +133,24 @@ mcd(0,5)
 #INPUT: Matriz de x variables explicativas, matriz y de variables dependientes
 #Output: vector de b que minimiza la suma de residuos al cuadrado en y=xb-u
 
-MCO=function(x,y){
+MCO = function(x,y){
   X=x
   Y=y
-  xr=nrow(x)
-  yr=nrow(y)
+  xr=nrow(X)
+  yr=nrow(Y)
   if(xr==yr){
-    b=solve(t(X)%*%X)%*%t(x)%*%Y
+    b=solve(t(X)%*%X)%*%t(X)%*%Y
     return(b)
-  } else{
-    print{}
+  } else {
+    print("Póngase más verga con las dimensiones de las matrices")
   }
 }
 
 
+A=matrix(c(9,10,50,69,777,888,79,666,23,74,86),6)
+B=matrix(5:10,6)
+
+MCO(A,B)
 
 ##Muestras aleatorias normales
 library(MASS)
@@ -150,8 +161,8 @@ su= 0.2 #varianza de U
 mx= c(4,2,0,0,2) #vector de medias de X
 sx= matrix(c(4,-1,0,0,0,
              -1,1,0,0,0,
-             0,0,1,0,0
-             0,0,0,9,2
+             0,0,1,0,0,
+             0,0,0,9,2,
              0,0,0,2,4),5) #Varianza de X
 
 Usample= rnorm(n, mu,su) #Muestra aleatoria de U
