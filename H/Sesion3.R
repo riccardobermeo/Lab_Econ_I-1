@@ -23,24 +23,25 @@ getwd()
 
 # En esta sesión
 
-
 # Data frames
 # Plots
 
-
-# -----------------------
-# Operadores relacionales
+# ---------------------------------------------------------
+# Dataframes & plots
 
 #Instalando los paquetes que usaremos
-
 install.packages("AER")
-
-
 
 # Cargamos la librería y la base de datos
 library("AER")
 
 data("Journals")
+
+# summary nos da un resumen del input
+summary(Journals)
+
+# Creamos una matriz para comparar con un dataframe
+JOURNAL = matrix(1:100)
 
 # Head() regresa los primeros elementos de un dataframe
 head(Journals)
@@ -91,7 +92,7 @@ png(filename = "testPNG.png",
 plot(subs ~ citeprice, data = Journals)
 dev.off()
 
-################################### Histogramas
+### Histogramas
 # Densidad
 hist(Journals$citeprice, freq = FALSE)
 # Lines es un gráfico de línea, en este caso añade la apariencia de la densidad
@@ -134,15 +135,22 @@ dev.off()
 
 # Distribución de frecuencias
 hist(Journals$citeprice)
+lines(density(Journals$citeprice), col = 2) # Rojo
 
 # Resumen de la variable
 summary(Journals$publisher)
 
+## Otros tipos de gráficos
 tab <- table(Journals$publisher)
 prop.table(tab)
+
+# Gráfico de barras
 barplot(tab)
+
+# Gráfico de "pay"
 pie(tab)
 
+## Reordenando el database para mejorar las visualizaciones
 sortedtab = sort(tab, decreasing = TRUE)
 otros = sum(sortedtab[7:52])
 main = sortedtab[1:6]
@@ -161,17 +169,15 @@ pdf("piePDF.pdf", height = 5, width = 6)
 pie(Editoriales, main="Mayores editoriales de Journals")
 dev.off()
 
-# Generate a dataset from scratch
 
 
-## Muestras aleatorias normales
+### Hacer un dataframe desde cero
+
+## Obtenemos una muestra aleatoria normal
 
 library(MASS)
 
 n = 30 # Tamaño de la muestra
-
-mu = 0 # Media de U
-su = 0.2 # Varianza de U
 
 mx = c(4,2,0,0,2) # Vector de medias de X 
 sx = matrix(c(4,-1,0,0,0,
@@ -180,45 +186,43 @@ sx = matrix(c(4,-1,0,0,0,
               0,0,0,9,2,
               0,0,0,2,4),5) # Varianza de X
 
-Usample = rnorm(n,mu,su) # Muestra aleatoria de U
 Xsample = mvrnorm(n,mx,sx) # Muestra aleatoria de x1 y x2
-
-
-Usample
 Xsample
 
+# Creamos las etiquetas para nombrar a nuestras "variables"
 lbls <- c("US", "UK", "Australia", "Germany", "France")
-Xsample
 
+# Aplicamos las etiquetas a las columnas de la matriz aleatoria
+colnames(Xsample) = lbls
+
+# Creamos un índice para poder graficar
 index = matrix(1:30)
-index
 
+# Unimos las matrices en una sola
 datos = cbind(index,Xsample)
 
+# Convertimos la matriz en dataframe
 datosF = as.data.frame(datos)
 
+# Usaremos nuestro dataframe ficticio para generar plots
+
+# Creamos un vector de colores 
 plot_colors <- c("blue","red","forestgreen")
 
-
-# specify them ourself
+# Creamos el gráfico base
 plot(datosF$US, type="o", col=plot_colors[1], ylim=c(-2,13), ylab = "Crecimiento", xlab = "Periodos")
-# Graph trucks with red dashed line and square points
-lines(datosF$UK, type="o", pch=22, lty=2, col=plot_colors[2])
 
-# Graph suvs with green dotted line and diamond points
+# Creamos otros gráficos encima del gráfico base
+lines(datosF$UK, type="o", pch=2, lty=5, col=plot_colors[2])
 lines(datosF$Australia, type="o", pch=23, lty=3, col=plot_colors[3])
 
-# Create a title with a red, bold/italic font
+# Asignamos el título al gráfico
 title(main="Países", col.main="blue", font.main=4)
 
+# Creamos un recuadro para referenciar a las líneas graficadas
 legend(25, 13, c("UK","Australia", "US"), c("blue","red","forestgreen"),cex=0.5)
 
 
-
-#################################
-################# Graficos de distribuciones frecuentes
-# Ploting a normal graph
-curve(dnorm, from = -5, to = 5, col = "slategray", lwd = 3,
-      main = "Density of the standard normal distribution")
-text(-5, 0.3, expression(f(x) == frac(1, sigma ~~ sqrt(2*pi)) ~~ e^{-frac((x - mu)^2, 2*sigma^2)}), adj = 0)
-
+# Referencias 
+# El ejemplo de Journals se basa en uno muy similar de 
+# Kleiber & Zeileis (2008) "Applied econometrics with R".
