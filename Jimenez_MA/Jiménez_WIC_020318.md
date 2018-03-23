@@ -1,4 +1,4 @@
-# Miguel Ángel Jiménez Abraham 
++# Miguel Ángel Jiménez Abraham 
     
 ## Apuntes de clases 02-marzo-2018
 Hoy se realizó una clase acerca de algoritmos, programación, operadores relacionales, condicionales, funciones, loops y paquetes. Entre los principales comandos destacaron:
