@@ -3,7 +3,7 @@
 # Licence Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)
 
 # ----------------------------------
-# Segunda sesión de laboratorio en R
+# Tercera sesión de laboratorio en R
 # ----------------------------------
 
 # Obtener la ruta de trabajo actual
